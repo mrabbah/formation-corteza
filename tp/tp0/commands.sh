@@ -1,3 +1,9 @@
+# Cloner le repo de la formation
+git clone https://github.com/mrabbah/formation-corteza
+
+# Executer la commande suivante:
+docker-compose pull
+
 # lancer l'application
 docker-compose up -d
 
