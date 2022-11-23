@@ -11,5 +11,9 @@ docker-compose up -d
 # login : admin@admin.com
 # pwd: Azerty$123
 
+# command suivi des logs:
+
+docker-compose logs -t --tail=100 -f server
+
 
 
