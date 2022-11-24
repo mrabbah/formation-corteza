@@ -1,4 +1,6 @@
 # récupérer tp2
+docker-compose down
+
 git stash && git pull
 
 # Accéder à tp2
@@ -20,9 +22,25 @@ docker-compose logs -t --tail=100 -f server
 docker-compose logs -t --tail=100 -f server | grep workflow.workflow
 
 # API de test : https://jsonplaceholder.typicode.com/users
+# appeler une API REST
 
 var inputData;
 
+try {
+        inputData = JSON.parse(readRequestBody(input));
+} catch (e) {
+        throw new Error('could not parse input payload: ' + e);
+}
+
+if (!inputData.name) {
+        throw new Error('could not parse input payload, name missing');
+}
+
+return { name: inputData.name, email: inputData.id };
+
+# partie API GW
+
+# recuperer les donnees au niveau du Workflow
 var inputData;
 try {
         inputData = JSON.parse(input);
@@ -36,17 +54,7 @@ if (!inputData.name) {
 
 return { name: inputData.name, email: inputData.id };
 
-var inputData;
-
-try {
-        inputData = JSON.parse(readRequestBody(input));
-} catch (e) {
-        throw new Error('could not parse input payload: ' + e);
-}
-
-if (!inputData.name) {
-        throw new Error('could not parse input payload, name missing');
-}
+# [{"name":"johnny","surname":"mnemonic"},{"name":"johnny","surname":"knoxville"}]
 
 return { name: inputData.name, email: inputData.id };
 # indiquer outside url pour redireger http://localhost:8083/compose/ns/namespace_handle/pages/page_id
