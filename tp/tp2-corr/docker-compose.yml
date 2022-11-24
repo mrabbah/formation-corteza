@@ -1,0 +1,20 @@
+version: '3.5'
+
+services:
+  server:
+    image: cortezaproject/corteza:${VERSION}
+    restart: always
+    env_file: .env
+    volumes:
+      - "./data/:/data"
+    ports: [ "0.0.0.0:8083:80" ]
+
+  corredor:
+    image: cortezaproject/corteza-server-corredor:${VERSION}
+    restart: always
+    env_file: .env_corredor
+    volumes:
+      - "./corteza-ext/:/data/corteza-ext"
+
+
+    

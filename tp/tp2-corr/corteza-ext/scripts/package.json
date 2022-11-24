@@ -1,0 +1,13 @@
+{
+  "name": "corredor-custom-server-scripts",
+  "version": "2022.3.1",
+  "description": "Rabbahsoft-Corteza dowload code soure Extension",
+  "main": "index.js",
+  "license": "Apache-2.0",
+  "contributors": [
+    "Rabbahsoft"
+  ],
+  "dependencies": {
+    "kafkajs": "^2.2.2"
+  }
+}
